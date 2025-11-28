@@ -1,0 +1,12 @@
+/* Custom nprogress bar: thicker and gradient color */
+#nprogress .bar {
+  height: 6px !important;
+  background: linear-gradient(90deg, #a78bfa, #f472b6, #60a5fa);
+  box-shadow: 0 0 10px #a78bfa88, 0 0 5px #f472b688;
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px #a78bfa, 0 0 5px #f472b6;
+}
+#nprogress .spinner {
+  display: none !important;
+}

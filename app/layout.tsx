@@ -1,6 +1,8 @@
+
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import NProgressBar from "./nprogress";
 
 const poppins = Poppins({
   weight: ['400', '700'],
@@ -20,9 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="">
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} antialiased`} cz-shortcut-listen="true">
+        <NProgressBar />
         {children}
       </body>
     </html>

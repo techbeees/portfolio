@@ -35,9 +35,12 @@ export default function Contact() {
       <div className="fixed top-6 left-6 z-50">
         <Link
           href="/"
-          className="px-4 py-2 border border-purple-500/50 rounded-lg text-sm font-semibold hover:bg-purple-500/10 transition-all"
+          className="flex items-center gap-2 px-6 py-4 border border-purple-500/50 rounded-lg text-sm font-semibold hover:bg-purple-500/10 transition-all"
         >
-          ← Back Home
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-purple-400">
+            <path d="M15 19l-7-7 7-7" />
+          </svg>
+          Back Home
         </Link>
       </div>
 
@@ -186,42 +189,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="bg-linear-to-b from-black to-purple-900/5 px-4 py-20 flex items-center justify-center">
-        <div className="max-w-3xl w-full">
-          <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              Frequently Asked <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Questions</span>
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            {[
-              {
-                q: "What's your typical project timeline?",
-                a: "Our timelines vary based on project complexity. The Starter plan takes 2 weeks, Professional takes 4-6 weeks. We'll provide a detailed timeline during consultation.",
-              },
-              {
-                q: "Do you offer ongoing support?",
-                a: "Yes! All our plans include deployment and testing. Professional tier includes 1 month free maintenance, and Enterprise includes long-term support.",
-              },
-              {
-                q: "Can we start with a small project?",
-                a: "Absolutely! Our Starter tier is perfect for getting started. We can always scale up as your needs grow.",
-              },
-              {
-                q: "What technologies do you use?",
-                a: "We use modern tech stacks including React, Next.js, Vue.js, Node.js, Python, and more. We choose the best tools for each project.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="p-6 rounded-2xl border border-purple-500/20 bg-purple-900/5 hover:bg-purple-900/10 transition-all">
-                <h3 className="text-lg font-bold mb-3 text-white">{item.q}</h3>
-                <p className="text-gray-400">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="bg-linear-to-br from-black via-purple-900/20 to-black px-4 py-20 flex items-center justify-center">

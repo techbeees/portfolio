@@ -33,16 +33,20 @@ export default function Home() {
   const pinkOpacity = Math.min(40, Math.max(10, Math.round(scrollProgress * 40 / 10) * 10));
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="relative bg-black text-white min-h-screen overflow-x-hidden">
+
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-linear-to-br from-purple-900/20 via-black to-blue-900/20 pointer-events-none" />
-
+        {/* Enhanced Gradient Background */}
+        <div className="absolute inset-0 bg-linear-to-br from-purple-900/40 via-black to-blue-900/40 pointer-events-none z-0" />
+        {/* Extra background shapes for visual interest */}
+        <div className="absolute -top-32 -left-32 w-[36rem] h-[36rem] bg-gradient-radial from-purple-700/40 to-transparent rounded-full blur-3xl z-0" />
+        <div className="absolute -bottom-40 right-0 w-[28rem] h-[28rem] bg-gradient-radial from-blue-700/30 to-transparent rounded-full blur-3xl z-0" />
+        <div className="absolute top-1/2 left-1/2 w-[30rem] h-[30rem] bg-gradient-radial from-pink-600/20 to-transparent rounded-full blur-2xl z-0" style={{ transform: 'translate(-50%, -50%)' }} />
         {/* Animated Background Elements */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-blob" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-blob z-0" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-2000 z-0" />
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-pink-500/10 rounded-full blur-3xl animate-blob animation-delay-4000 z-0" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center gap-8 max-w-4xl">
@@ -179,7 +183,10 @@ export default function Home() {
       <div className="h-24" />
 
       {/* Services Section */}
-      <section id="services" className="min-h-screen bg-linear-to-b from-black via-purple-900/5 to-black px-4 py-20 flex items-center justify-center">
+      <section id="services" className="relative min-h-screen bg-linear-to-b from-black via-purple-900/10 to-black px-4 py-20 flex items-center justify-center overflow-hidden">
+        {/* Decorative background for services */}
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[32rem] h-[18rem] bg-gradient-radial from-pink-500/20 to-transparent rounded-full blur-2xl z-0" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-radial from-blue-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-6xl w-full">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -236,8 +243,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio/Projects Section */}
-      <section id="projects" className="min-h-screen bg-linear-to-b from-black to-purple-900/5 px-4 py-20 flex items-center justify-center">
+      {/* Portfolio/Projects Section - Zig-Zag Grid */}
+      <section id="projects" className="relative min-h-screen bg-linear-to-b from-black to-purple-900/10 px-4 py-20 flex flex-col items-center justify-center overflow-hidden">
+        {/* Decorative background for projects */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-radial from-purple-500/20 to-transparent rounded-full blur-2xl z-0" />
+        <div className="absolute bottom-0 right-1/3 w-[28rem] h-[16rem] bg-gradient-radial from-pink-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-6xl w-full">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -247,77 +257,58 @@ export default function Home() {
               Showcase of our most impactful work across industries
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Zig-zag grid layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             {/* Project Card 1 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300">
-              <div className="aspect-video bg-linear-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🚀</div>
-                  <p className="text-gray-300">E-commerce Platform</p>
-                </div>
-              </div>
-              <div className="p-6 bg-black/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-2">E-commerce Platform</h3>
-                <p className="text-gray-400 text-sm mb-4">Built a scalable e-commerce solution serving 100K+ users monthly</p>
-                <div className="flex gap-2 flex-wrap">
+            <div className="group bg-linear-to-br from-purple-900/60 to-pink-900/40 rounded-3xl shadow-xl border border-purple-500/30 hover:border-pink-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden md:translate-y-8">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-pink-500/20 to-purple-500/10 rounded-bl-3xl z-0" />
+              <div className="relative z-10 flex flex-col items-center justify-center p-8">
+                <div className="text-6xl mb-4 animate-bounce-slow">🚀</div>
+                <h3 className="text-2xl font-bold mb-2">E-commerce Platform</h3>
+                <p className="text-gray-400 text-sm mb-4 text-center">Built a scalable e-commerce solution serving 100K+ users monthly</p>
+                <div className="flex gap-2 flex-wrap justify-center">
                   <span className="px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300">React</span>
                   <span className="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-300">Node.js</span>
                   <span className="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-300">AWS</span>
                 </div>
               </div>
             </div>
-
             {/* Project Card 2 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-pink-500/20 hover:border-pink-500/50 transition-all duration-300">
-              <div className="aspect-video bg-linear-to-br from-pink-600/20 to-blue-600/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">📱</div>
-                  <p className="text-gray-300">Mobile Fitness App</p>
-                </div>
-              </div>
-              <div className="p-6 bg-black/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-2">Fitness Tracking App</h3>
-                <p className="text-gray-400 text-sm mb-4">Cross-platform mobile app with AI-powered workout recommendations</p>
-                <div className="flex gap-2 flex-wrap">
+            <div className="group bg-linear-to-br from-pink-900/60 to-blue-900/40 rounded-3xl shadow-xl border border-pink-500/30 hover:border-blue-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden md:-translate-y-8">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-blue-500/20 to-pink-500/10 rounded-bl-3xl z-0" />
+              <div className="relative z-10 flex flex-col items-center justify-center p-8">
+                <div className="text-6xl mb-4 animate-bounce-slow">📱</div>
+                <h3 className="text-2xl font-bold mb-2">Fitness Tracking App</h3>
+                <p className="text-gray-400 text-sm mb-4 text-center">Cross-platform mobile app with AI-powered workout recommendations</p>
+                <div className="flex gap-2 flex-wrap justify-center">
                   <span className="px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300">Flutter</span>
                   <span className="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-300">Firebase</span>
                   <span className="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-300">TensorFlow</span>
                 </div>
               </div>
             </div>
-
             {/* Project Card 3 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-blue-500/20 hover:border-blue-500/50 transition-all duration-300">
-              <div className="aspect-video bg-linear-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🏢</div>
-                  <p className="text-gray-300">Enterprise SaaS</p>
-                </div>
-              </div>
-              <div className="p-6 bg-black/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-2">Enterprise SaaS Platform</h3>
-                <p className="text-gray-400 text-sm mb-4">Complete business management system adopted by Fortune 500 companies</p>
-                <div className="flex gap-2 flex-wrap">
+            <div className="group bg-linear-to-br from-blue-900/60 to-purple-900/40 rounded-3xl shadow-xl border border-blue-500/30 hover:border-purple-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden md:translate-y-8">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-purple-500/20 to-blue-500/10 rounded-bl-3xl z-0" />
+              <div className="relative z-10 flex flex-col items-center justify-center p-8">
+                <div className="text-6xl mb-4 animate-bounce-slow">🏢</div>
+                <h3 className="text-2xl font-bold mb-2">Enterprise SaaS Platform</h3>
+                <p className="text-gray-400 text-sm mb-4 text-center">Complete business management system adopted by Fortune 500 companies</p>
+                <div className="flex gap-2 flex-wrap justify-center">
                   <span className="px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300">Next.js</span>
                   <span className="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-300">PostgreSQL</span>
                   <span className="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-300">Kubernetes</span>
                 </div>
               </div>
             </div>
-
             {/* Project Card 4 */}
-            <div className="group relative overflow-hidden rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all duration-300">
-              <div className="aspect-video bg-linear-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-5xl mb-4">🎯</div>
-                  <p className="text-gray-300">Analytics Dashboard</p>
-                </div>
-              </div>
-              <div className="p-6 bg-black/50 backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-2">Real-time Analytics Dashboard</h3>
-                <p className="text-gray-400 text-sm mb-4">Advanced data visualization with real-time insights and reporting</p>
-                <div className="flex gap-2 flex-wrap">
+            <div className="group bg-linear-to-br from-purple-900/60 to-blue-900/40 rounded-3xl shadow-xl border border-purple-500/30 hover:border-blue-500/60 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer relative overflow-hidden md:-translate-y-8">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-linear-to-br from-blue-500/20 to-purple-500/10 rounded-bl-3xl z-0" />
+              <div className="relative z-10 flex flex-col items-center justify-center p-8">
+                <div className="text-6xl mb-4 animate-bounce-slow">🎯</div>
+                <h3 className="text-2xl font-bold mb-2">Real-time Analytics Dashboard</h3>
+                <p className="text-gray-400 text-sm mb-4 text-center">Advanced data visualization with real-time insights and reporting</p>
+                <div className="flex gap-2 flex-wrap justify-center">
                   <span className="px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300">Vue.js</span>
                   <span className="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-300">Python</span>
                   <span className="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-300">ElasticSearch</span>
@@ -329,7 +320,9 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen bg-linear-to-b from-purple-900/5 to-black px-4 py-20 flex items-center justify-center">
+      <section id="about" className="relative min-h-screen bg-linear-to-b from-purple-900/10 to-black px-4 py-20 flex items-center justify-center overflow-hidden">
+        {/* Decorative background for about */}
+        <div className="absolute -top-20 right-1/4 w-[24rem] h-[14rem] bg-gradient-radial from-blue-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-5xl w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
@@ -375,7 +368,9 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="min-h-screen bg-linear-to-b from-black via-purple-900/5 to-black px-4 py-20 flex items-center justify-center">
+      <section className="relative min-h-screen bg-linear-to-b from-black via-purple-900/10 to-black px-4 py-20 flex items-center justify-center overflow-hidden">
+        {/* Decorative background for testimonials */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[30rem] h-[10rem] bg-gradient-radial from-pink-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-6xl w-full">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -439,7 +434,9 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen bg-linear-to-b from-purple-900/5 to-black px-4 py-20 flex items-center justify-center">
+      <section id="pricing" className="relative min-h-screen bg-linear-to-b from-purple-900/10 to-black px-4 py-20 flex items-center justify-center overflow-hidden">
+        {/* Decorative background for pricing */}
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[28rem] h-[12rem] bg-gradient-radial from-purple-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-6xl w-full">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold mb-4">
@@ -569,7 +566,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="min-h-screen bg-linear-to-br from-black via-purple-900/20 to-black px-4 py-20 flex items-center justify-center">
+      <section className="relative min-h-screen bg-linear-to-br from-black via-purple-900/20 to-black px-4 py-20 flex items-center justify-center overflow-hidden">
+        {/* Decorative background for CTA */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-radial from-pink-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-4xl w-full text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             Ready to Build <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Something Amazing?</span>
@@ -584,7 +583,9 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black border-t border-purple-500/10 px-4 py-12">
+      <footer className="relative bg-black border-t border-purple-500/10 px-4 py-12 overflow-hidden">
+        {/* Decorative background for footer */}
+        <div className="absolute -bottom-20 right-0 w-[24rem] h-40 bg-gradient-radial from-blue-500/20 to-transparent rounded-full blur-2xl z-0" />
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -602,9 +603,10 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-white transition">About</a></li>
-                <li><a href="#" className="hover:text-white transition">Portfolio</a></li>
-                <li><a href="#" className="hover:text-white transition">Careers</a></li>
+                <li><button
+                  onClick={() => scrollToSection('about')} className="hover:text-white transition cursor-pointer">About</button></li>
+                <li><Link href="/faq" className="hover:text-white transition">FAQ</Link></li>
+                <li><Link href="/careers" className="hover:text-white transition">Careers</Link></li>
               </ul>
             </div>
             <div>
@@ -612,7 +614,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white transition">Twitter</a></li>
                 <li><a href="#" className="hover:text-white transition">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-white transition">GitHub</a></li>
+                <li><a href="#" className="hover:text-white transition">Facebook</a></li>
               </ul>
             </div>
           </div>
