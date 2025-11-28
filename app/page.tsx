@@ -94,10 +94,6 @@ export default function Home() {
           )}
           style={{
             transform: 'translateX(-50%)',
-            //   width: `${Math.max(320, 320 + (window.innerWidth - 320) * scrollProgress)}px`,
-            //   maxWidth: 'calc(100vw - 32px)',
-            //   height: `${60 + scrollProgress * 40}px`,
-            //   borderRadius: `${32 - 24 * scrollProgress}px`,
             opacity: 1,
             borderRadius: `8px`,
             paddingLeft: `${(scrollProgress > 0.01 ? 1 : 0) * (scrollProgress * 32 + 24)}px`,
@@ -151,16 +147,16 @@ export default function Home() {
               }}
             >
               <button
-                onClick={() => scrollToSection('pricing')}
-                className="text-sm text-gray-200 hover:text-white font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
-              >
-                Pricing
-              </button>
-              <button
                 onClick={() => scrollToSection('about')}
                 className="text-sm text-gray-200 hover:text-white font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
               >
                 About
+              </button>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="text-sm text-gray-200 hover:text-white font-medium transition-all duration-200 whitespace-nowrap cursor-pointer"
+              >
+                Pricing
               </button>
             </div>
           </nav>
@@ -169,11 +165,13 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="text-center flex flex-col-reverse gap-1 justify-center items-center">
+          <div className={cn("text-center flex flex-col-reverse gap-1 justify-center items-center", {
+            'opacity-0': scrollProgress > 0.1,
+          })}>
             <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
-            <p className="text-gray-400 text-sm">Scroll to explore</p>
+            <p className='text-gray-400 text-sm'>Scroll to explore</p>
           </div>
         </div>
       </section>
@@ -534,7 +532,7 @@ export default function Home() {
                 <span className="text-5xl font-bold">Custom</span>
                 <p className="text-gray-400 text-sm mt-2">tailored pricing</p>
               </div>
-              <ul className="space-y-3 mb-8 flex-grow">
+              <ul className="space-y-3 mb-8 grow">
                 <li className="flex items-center gap-3 text-gray-300">
                   <span className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-xs">✓</span>
                   Unlimited development hours
